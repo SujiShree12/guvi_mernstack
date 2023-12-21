@@ -21,7 +21,7 @@ const corsOpts = {
     allowedHeaders: ["Content-Type"],
 };
 app.use(cors({
-    origin: 'http://localhost:3000',
+    origin: '*',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
     optionsSuccessStatus: 204,
@@ -37,6 +37,9 @@ mongoose.connection.on("disconnected", () => {
     console.log("Mongodb disconnected!");
 });
 app.use(express.json());
+app.get("/",(req,res)=>{
+    res.send("Hai This is Sujishree's server😇");
+})
 app.use('/api/auth', authRoutes);
 
 app.use((err, req, res, next) => {
@@ -49,7 +52,8 @@ app.use((err, req, res, next) => {
         stack: err.stack,
     });
 });
-app.listen(process.env.PORT||3000, () => {
+const port = process.env.PORT|| 8000
+app.listen(port, () => {
     connect();
-    console.log("backend connected");
+    console.log("backend started",port);
 });

@@ -28,7 +28,7 @@ const Profile = () => {
   useEffect(() => {
     const fetchProfileData = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/auth/all');
+        const response = await axios.get('https://sujishree.onrender.com/api/auth/all');
 
         // Check if the user ID from the fetched data matches the user ID in localStorage
         const userIdFromLocalStorage = localStorage.getItem('userId');
@@ -70,7 +70,7 @@ const Profile = () => {
         mobile: updateData.mobile || userData.mobile,
       };
 
-      await axios.put(`http://localhost:5000/api/auth/profile/${userId}`, updatedData);
+      await axios.put(`https://sujishree.onrender.com/api/auth/profile/${userId}`, updatedData);
       setEditMode(false); // Disable edit mode after update
       window.location.reload();
     } catch (error) {

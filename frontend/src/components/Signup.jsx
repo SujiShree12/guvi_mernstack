@@ -37,7 +37,7 @@ const Signup = () => {
     }
 
     try {
-      await axios.post('http://localhost:5000/api/auth/signup', {
+      await axios.post('https://sujishree.onrender.com/api/auth/signup', {
         name: formData.name,
         email: formData.email,
         password: formData.password,
