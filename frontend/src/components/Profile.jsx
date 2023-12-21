@@ -32,6 +32,9 @@ const Profile = () => {
 
         // Check if the user ID from the fetched data matches the user ID in localStorage
         const userIdFromLocalStorage = localStorage.getItem('userId');
+        if (!userIdFromLocalStorage ) {
+          window.location.href= "/login"
+        }
         for (let i = 0; i < response.data.length; i++) {
           if (response.data[i]._id === userIdFromLocalStorage) {
             // Update state with the matching user's data
