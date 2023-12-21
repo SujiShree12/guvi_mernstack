@@ -73,5 +73,8 @@ router.put('/profile/:userId', async(req, res) => {
         res.status(500).json({ error: 'Internal server error' });
     }
 });
+router.get("/",(req,res)=>{
+    res.send("Hai This is Sujishree's server😇");
+})
 
 module.exports = router;

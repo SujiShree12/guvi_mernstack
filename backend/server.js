@@ -49,7 +49,7 @@ app.use((err, req, res, next) => {
         stack: err.stack,
     });
 });
-app.listen(3000, () => {
+app.listen(process.env.PORT||3000, () => {
     connect();
     console.log("backend connected");
 });
